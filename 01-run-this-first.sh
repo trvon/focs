@@ -74,7 +74,7 @@ fi
 #[__;.__.'[___]'.__.' '.___.'[__|  \_]
 #
 # Dependency line for Debian GNU/Linux 10 (buster)
-{ sudo apt install -y git wget python coreutils binwalk qemu-user libtool wget python autoconf libtool-bin automake bison libglib2.0-dev && echo -e "${INFO}Installing dependencies...${NC}"; } || { echo -e "${ERROR}Uh oh... issue installing dependencies....${NC}" && exit 1; }
+#{ sudo apt install -y git wget python coreutils binwalk qemu-user libtool wget python autoconf libtool-bin automake bison libglib2.0-dev && echo -e "${INFO}Installing dependencies...${NC}"; } || { echo -e "${ERROR}Uh oh... issue installing dependencies....${NC}" && exit 1; }
 
 # Dependencies specifically for sasquatch
 #sudo apt-get install -y build-essential liblzma-dev liblzo2-dev zlib1g-dev
@@ -86,14 +86,14 @@ fi
 THISDIR="$(echo $PWD)"
 
 # Grab latest version of AFL
-{ wget http://lcamtuf.coredump.cx/afl/releases/afl-latest.tgz && echo -e "${INFO}Grabbing the latest version of AFL from Michal... Thanks, Mr. Zalewski!${NC}"; } || { echo -e "${ERROR}Whoops... Problem grabbing the latest AFL! Google lcamtuf to find out why!${NC}" && exit 1; }
+#{ wget http://lcamtuf.coredump.cx/afl/releases/afl-latest.tgz && echo -e "${INFO}Grabbing the latest version of AFL from Michal... Thanks, Mr. Zalewski!${NC}"; } || { echo -e "${ERROR}Whoops... Problem grabbing the latest AFL! Google lcamtuf to find out why!${NC}" && exit 1; }
 
 # Unpack it
-{ tar -xvf afl-latest.tgz && echo -e "${INFO}Unpacking the tarball of AFL${NC}"; } || { echo -e "${RED}Issue unpacking the tarball... Could be an issue with the script?${NC}" && exit 1; }
+#{ tar -xvf afl-latest.tgz && echo -e "${INFO}Unpacking the tarball of AFL${NC}"; } || { echo -e "${RED}Issue unpacking the tarball... Could be an issue with the script?${NC}" && exit 1; }
 
 # This is to future proof the script (in case the latest version changes)
-rm afl-latest.tgz
-mv afl* afl/
+#rm afl-latest.tgz
+#mv afl* afl/
 cd afl/ #clever, huh?
 
 echo -e "${INFO}If you see this, everything is going fine so far....${NC}" || { echo -e "${ERROR}Yikes... If you see this there was a very terrible system error...${NC}" && exit 1; }
@@ -105,7 +105,6 @@ echo -e "${INFO}If you see this, everything is going fine so far....${NC}" || { 
 
 { cd qemu_mode && echo -e "${INFO}qemu_mode directory is where it's supposed to be...${NC}"; } || { echo -e "${ERROR}qemu_mode directory is not where it's supposed to be...${NC}" && exit 1; }
 
-# Decided to host my own version of QEMU
 # So I've commented out the lines to grab a new copy
 VERSION="2.10.0"
 QEMU_URL="http://download.qemu-project.org/qemu-${VERSION}.tar.xz"

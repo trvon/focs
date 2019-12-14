@@ -25,7 +25,19 @@ if [ $x == 'q' ];then
 	echo -e "${INFO}For the best...${NC}" && exit 1
 fi
 
-cp $1 backup.bak
+# go ahead and get sudo
+sudo cat /etc/*elease | grep -i pretty_name= | cut -d "=" -f 2 | sed "s/\"//g"
+
+DESK=$(sudo cat /etc/*elease | grep -i pretty_name= | cut -d "=" -f 2 | sed "s/\"//g")
+
+if [[ $DESK == 'Debian GNU/Linux 10 (buster)' ]]; then
+	echo $DESK
+	echo -e "${INFO}We gotta apply the patch for Debian buster to work...${NC}"
+	cp patches/memfd.c.debian10 afl/qemu*/qemu*/util/memfd.c || { echo -e "${ERROR}Patch file for Debian did not work! check the patches folderr.${NC}" && exit 1; }
+else
+	echo -e "${INFO}Applying the orignal file since we don't need to change it.${NC}"
+	{ cp patches/memfd.c.original afl/qemu*/qemu*/util/memfd.c && exit 1; }
+fi
 
 binwalk -e $1 || { echo -e "${ERROR}Unfortunately, binwalk threw an issue... This can't be fixed by me, I'm afraid...${NC}" && exit 1; } 
 
