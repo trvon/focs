@@ -15,7 +15,7 @@ echo -e "${INFO}This can throw some issues, and this is certainly the part that 
 echo -e "${INFO}most trouble across Linix distros. If you are moving ahead with an unsupported${NC}"
 echo -e "${INFO}distribution, be very wary of error messages from the system, as my error messages${NC}"
 echo -e "${INFO}are typically only catching issues with this script itself and not things like the${NC}"
-echo -e "${INFO}make command.${NC}"
+echo -e "${INFO}'make' command.${NC}"
 echo -e "${INFO}${NC}"
 echo -e "${INFO}If you would like to quit to do some testing, enter 'q', otherwise, enter any other key to continue...${NC}"
 

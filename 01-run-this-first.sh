@@ -17,7 +17,9 @@ echo -e "${INFO}not something you should be tinkering with.${NC}"
 echo -e "${INFO}${NC}"
 echo -e "${INFO}Also, this script has currently only been tested on limited Linux distros.${NC}"
 echo -e "${INFO}The script will check what distro you're running and if it is supported.${NC}"
-echo -e "${INFO}If it is not supported, I will direct you to file in the docs directory 'how_to_do_manually_what_FOCS_is_doing_for_you.txt'${NC}"
+echo -e "${INFO}If it is not supported, I will direct you to a file in the docs directory named${NC}"
+echo -e "${INFO}'how_to_do_manually_what_FOCS_is_doing_for_you.txt'${NC}"
+echo
 echo -e "${INFO}Press 'q' to quit or enter any other key to continue...${NC}"
 
 read x
@@ -74,7 +76,8 @@ fi
 #[__;.__.'[___]'.__.' '.___.'[__|  \_]
 #
 # Dependency line for Debian GNU/Linux 10 (buster)
-#{ sudo apt install -y git wget python coreutils binwalk qemu-user libtool wget python autoconf libtool-bin automake bison libglib2.0-dev && echo -e "${INFO}Installing dependencies...${NC}"; } || { echo -e "${ERROR}Uh oh... issue installing dependencies....${NC}" && exit 1; }
+# uncomment or comment the below line for Debian dependencies
+{ sudo apt install -y git wget python coreutils binwalk qemu-user libtool wget python autoconf libtool-bin automake bison libglib2.0-dev && echo -e "${INFO}Installing dependencies...${NC}"; } || { echo -e "${ERROR}Uh oh... issue installing dependencies....${NC}" && exit 1; }
 
 # Dependencies specifically for sasquatch
 #sudo apt-get install -y build-essential liblzma-dev liblzo2-dev zlib1g-dev
